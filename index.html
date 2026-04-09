@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mallory Odom — Product Manager (Dashboard) | SpotOn</title>
+<meta name="description" content="8 years behind the counter. 7+ years building the products. One PM who actually gives a sh*t.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-section: #111111;
+    --white: #ffffff;
+    --white-90: rgba(255,255,255,0.9);
+    --white-70: rgba(255,255,255,0.7);
+    --white-50: rgba(255,255,255,0.5);
+    --white-20: rgba(255,255,255,0.2);
+    --white-10: rgba(255,255,255,0.1);
+    --blue: #3b82f6;
+    --blue-glow: rgba(59,130,246,0.15);
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--white-10);
+  }
+
+  .nav-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-logo .dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2.5px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .nav-logo .dot::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--white);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: var(--white-70);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--white);
+    color: var(--bg);
+    padding: 0.55rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(255,255,255,0.15);
+    color: var(--bg);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    max-width: 900px;
+  }
+
+  .underline-blue {
+    position: relative;
+    display: inline;
+  }
+
+  .underline-blue::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: -4px;
+    right: -4px;
+    height: 12px;
+    background: var(--blue);
+    border-radius: 6px;
+    z-index: -1;
+    opacity: 0.8;
+    transform: rotate(-0.5deg);
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--white-70);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white-10);
+    border: 1px solid var(--white-20);
+    border-radius: 50px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    color: var(--white-70);
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+
+  .hero-tag .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  /* ===== SECTION: VALUE PROPS ===== */
+  .section {
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-dark {
+    background: var(--bg-section);
+    max-width: 100%;
+    padding: 5rem 0;
+  }
+
+  .section-dark .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .section-headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    max-width: 750px;
+  }
+
+  .section-body {
+    font-size: 1.05rem;
+    color: var(--white-70);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ===== CHECKMARK PROPS ===== */
+  .props-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .prop {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .prop-check {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--green-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .prop-check svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--green);
+    stroke-width: 3;
+    fill: none;
+  }
+
+  .prop-text {
+    font-size: 0.95rem;
+    color: var(--white-90);
+    line-height: 1.5;
+  }
+
+  .prop-text strong {
+    display: block;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.15rem;
+  }
+
+  /* ===== EXPERIENCE TIMELINE ===== */
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--white-20);
+  }
+
+  .tl-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    position: relative;
+  }
+
+  .tl-dot {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .tl-dot.active {
+    background: var(--blue);
+    box-shadow: 0 0 20px var(--blue-glow);
+  }
+
+  .tl-dot-inner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+
+  .tl-dot.active .tl-dot-inner {
+    background: var(--white);
+  }
+
+  .tl-content h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .tl-content .tl-role {
+    font-size: 0.82rem;
+    color: var(--blue);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .tl-content p {
+    font-size: 0.88rem;
+    color: var(--white-70);
+    line-height: 1.5;
+  }
+
+  .tl-gap {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .tl-gap::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--white-20) 0px,
+      var(--white-20) 4px,
+      transparent 4px,
+      transparent 10px
+    );
+  }
+
+  .tl-gap-label {
+    margin-left: 2.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white-50);
+    font-weight: 600;
+    background: var(--bg-section);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    border: 1px solid var(--white-10);
+  }
+
+  /* ===== METRICS STRIP ===== */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--white-10);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 3rem 0;
+  }
+
+  .metric {
+    background: var(--bg);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .metric-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 2.25rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .metric-label {
+    font-size: 0.78rem;
+    color: var(--white-50);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== WHY SECTION ===== */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  .why-card {
+    background: var(--white-10);
+    border: 1px solid var(--white-10);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .why-card:hover {
+    border-color: var(--blue);
+    background: var(--blue-glow);
+  }
+
+  .why-card h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .why-card p {
+    font-size: 0.9rem;
+    color: var(--white-70);
+    line-height: 1.6;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    text-align: center;
+    padding: 6rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-body {
+    font-size: 1.05rem;
+    color: var(--white-70);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    color: var(--bg);
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255,255,255,0.15);
+    color: var(--bg);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    border: 2px solid var(--white-20);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--white-50);
+    background: var(--white-10);
+    color: var(--white);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--white-10);
+    padding: 2rem 3rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--white-50);
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .fade-up-d1 { animation-delay: 0.1s; }
+  .fade-up-d2 { animation-delay: 0.25s; }
+  .fade-up-d3 { animation-delay: 0.4s; }
+  .fade-up-d4 { animation-delay: 0.55s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .section { padding: 3.5rem 1.5rem; }
+    .section-dark .section-inner { padding: 0 1.5rem; }
+    .props-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .metrics { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .cta-section { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; }
+  }
+  /* ===== WSJF INTERACTIVE ===== */
+  .toggle-bar {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1.25rem;
+    background: var(--white-10);
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+  }
+
+  .toggle-btn {
+    background: transparent;
+    color: var(--white-50);
+    border: none;
+    padding: 0.65rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .toggle-btn.active {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .toggle-btn:hover:not(.active) {
+    background: var(--white-10);
+    color: var(--white-70);
+  }
+
+  .wsjf-table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--white-10);
+  }
+
+  .wsjf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 700px;
+  }
+
+  .wsjf-table thead {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .wsjf-table th {
+    padding: 0.6rem 0.7rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white-50);
+    border-bottom: 1px solid var(--white-10);
+  }
+
+  .wsjf-table th.feature-col { text-align: left; }
+
+  .wsjf-table td {
+    padding: 0.6rem 0.7rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: var(--white-90);
+    transition: background 0.3s;
+  }
+
+  .wsjf-table td.feature-cell {
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .wsjf-table tbody tr {
+    transition: transform 0.4s ease, opacity 0.3s ease;
+  }
+
+  .wsjf-table tbody tr:hover {
+    background: rgba(59,130,246,0.08);
+  }
+
+  .wsjf-table .rank-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--blue);
+    width: 36px;
+  }
+
+  .wsjf-table .wsjf-score {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--green);
+  }
+
+  .wsjf-table .vote-count {
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .wsjf-table .dim {
+    color: var(--white-50);
+  }
+
+  .wsjf-highlight {
+    background: rgba(59,130,246,0.1) !important;
+  }
+
+  @media (max-width: 768px) {
+    .toggle-bar { width: 100%; }
+    .toggle-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-logo">
+    <div class="dot"></div>
+    Mallory Odom
+  </div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#why">Why Me</a>
+    <a href="#connect">Connect</a>
+  </div>
+  <a href="/cdn-cgi/l/email-protection#4f222e2323203d360f2a372e223f232a612c2022" class="nav-cta">Let's talk</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-tag fade-up">
+    <span class="pulse"></span>
+    Applying: Product Manager (Dashboard)
+  </div>
+
+  <h1 class="hero-headline fade-up fade-up-d1">
+    I actually <span class="underline-blue">give a</span> sh*t.
+  </h1>
+
+  <p class="hero-sub fade-up fade-up-d2">
+    8 years behind the counter. 7+ years building the products. I've been the operator wrestling with bad software on a Friday rush. Now I want to build the Dashboard that every operator deserves.
+  </p>
+
+  <a href="#experience" class="btn-primary fade-up fade-up-d3">
+    See how I got here
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 18V6"/></svg>
+  </a>
+</section>
+
+<!-- ===== THE OPERATOR STORY ===== -->
+<div class="section-dark">
+  <div class="section-inner" id="experience">
+    <div class="section-label">With hospitality</div>
+    <h2 class="section-headline">Did your last PM candidate ever <span class="underline-blue">close a kitchen</span> at 2 AM?</h2>
+    <p class="section-body">
+      Most PMs build restaurant tools from user interviews and personas. I built my understanding from eight years of food service — managing rushes, running BOH, watching ticket printers jam at the worst possible moment, and knowing exactly which reports actually get pulled at the end of a shift.
+    </p>
+
+    <div class="props-grid">
+      <div class="prop">
+        <div class="prop-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="prop-text">
+          <strong>8 years in food service</strong>
+          I've lived the operator's world — the pain points, the shift-level chaos, and the data that actually matters when you're trying to hit labor targets.
+        </div>
+      </div>
+      <div class="prop">
+        <div class="prop-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="prop-text">
+          <strong>7+ years in product management</strong>
+          B2B SaaS platforms at IMPLAN, Leadventure, and DataClover — roadmaps, PRDs, cross-functional leadership, and shipping features that move metrics.
+        </div>
+      </div>
+      <div class="prop">
+        <div class="prop-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="prop-text">
+          <strong>Sales Supervisor at Warby Parker</strong>
+          Currently managing a retail team, using back-office dashboards daily, and understanding how operators interact with business tools in real time.
+        </div>
+      </div>
+      <div class="prop">
+        <div class="prop-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="prop-text">
+          <strong>Northwestern Kellogg certified</strong>
+          Product Strategy certification from one of the top business schools in the country. Strategic thinking backed by frameworks.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== METRICS ===== -->
+<section class="section">
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-value">42%</div>
+      <div class="metric-label">Time-to-Value Reduction</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">26%</div>
+      <div class="metric-label">NPS Score Increase</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">$200K+</div>
+      <div class="metric-label">Overages Uncovered</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">50%</div>
+      <div class="metric-label">Reporting Prep Reduction</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE TIMELINE ===== -->
+<div class="section-dark">
+  <div class="section-inner">
+    <div class="section-label">The road here</div>
+    <h2 class="section-headline">From the <span class="underline-blue">floor</span> to the product.</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot active"><div class="tl-dot-inner"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Current — Sales Supervisor</div>
+          <h4>Warby Parker · Portland, OR</h4>
+          <p>Managing team performance, daily dashboard operations, and understanding exactly how operators interact with back-office tools under real-world pressure.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Product Manager, Strategy</div>
+          <h4>IMPLAN · B2B SaaS Economic Analysis</h4>
+          <p>Led the strategic shift from Sales-Led to Product-Led Growth. Built and managed a 30-participant beta program. Implemented AI-driven onboarding that cut time-to-value by 42%.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Product Manager & Owner, Digital Marketing</div>
+          <h4>Leadventure · B2B SaaS</h4>
+          <p>Uncovered $200K+ in overages through P&L audits. Spearheaded enterprise personalization automation (AI/ML) that streamlined onboarding by 33% and reporting prep by 50%. Grew NPS by 26%.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Product Strategist & Digital Strategy</div>
+          <h4>DataClover · Scout · DataComm · IQ Agency</h4>
+          <p>OEM product strategy for BMW/MINI, e-commerce builds, competitive analysis, and social campaigns — bridging the gap from marketing strategy into product ownership.</p>
+        </div>
+      </div>
+
+      <div class="tl-gap">
+        <span class="tl-gap-label">~ a whole other career ago ~</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">8 Years in Food Service · Teens & 20s</div>
+          <h4>Where it all started</h4>
+          <p>Rushes, inventory nightmares, labor scheduling headaches, and the daily reality of running a food operation. This isn't theoretical knowledge — it's muscle memory. And it's the reason I understand SpotOn's operators in a way most PMs never will.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHY ME FOR DASHBOARD ===== -->
+<section class="section" id="why">
+  <div class="section-label">Why SpotOn. Why Dashboard. Why Me.</div>
+  <h2 class="section-headline">The Dashboard is where <span class="underline-blue">operators live</span>.</h2>
+  <p class="section-body">
+    Every SpotOn tool — Profit Assist, Teamwork, Reserve, Order — converges in the Dashboard. It's the back office that operators open first thing in the morning and last thing before close. I want to make it the reason they stay.
+  </p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <h4>I've been the user.</h4>
+      <p>I don't need personas to understand what an operator needs from a dashboard at 6 AM before open or midnight after close. I've pulled those reports. I've dug through sales mix data to figure out what went wrong on a bad shift. That intuition can't be replicated from user interviews alone.</p>
+    </div>
+    <div class="why-card">
+      <h4>I build for adoption, not features.</h4>
+      <p>At IMPLAN, I led the shift from Sales-Led to Product-Led Growth — aligning product, pricing, and go-to-market around self-serve adoption. The Dashboard PM role is the same challenge: make powerful tools accessible enough that operators actually use them.</p>
+    </div>
+    <div class="why-card">
+      <h4>I find the money.</h4>
+      <p>I've audited P&Ls, uncovered $200K in overages, and built reporting that surfaces what matters. SpotOn's own research says 84% of operators need better financial systems and 73% don't trust their pricing strategy. The Dashboard is where that trust gets built — or broken.</p>
+    </div>
+    <div class="why-card">
+      <h4>I care about the craft.</h4>
+      <p>SpotOn's culture says "we treat you the way you treat your customers." I've spent my career at the intersection of operations and product because I believe the best tools are built by people who've felt the pain firsthand. Hospitality isn't a checkbox on my resume — it's the lens through which I do all my work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROADMAP METHODOLOGY ===== -->
+<div class="section-dark">
+  <div class="section-inner" id="roadmap">
+    <div class="section-label">How I build roadmaps</div>
+    <h2 class="section-headline">Votes are a signal. <span class="underline-blue">Weighted scoring</span> is the decision.</h2>
+    <p class="section-body">
+      I know SpotOn gives stakeholders the ability to vote on features — that's great because it builds transparency and buy-in. But voting alone can become a popularity contest. I layer data-driven prioritization methodologies on top to weigh each ask by business value, time criticality, and risk — so the roadmap reflects impact, not volume.
+    </p>
+    <p class="section-body" style="margin-bottom: 1.5rem; font-size: 0.92rem; color: var(--white-50);">
+      Toggle between views to see how the same features reorder when you move from raw votes to weighted scoring.
+    </p>
+
+    <div class="toggle-bar">
+      <button class="toggle-btn active" onclick="sortBy('votes')">Sort by Votes</button>
+      <button class="toggle-btn" onclick="sortBy('wsjf')">Sort by Weighted Score</button>
+    </div>
+
+    <div class="wsjf-table-wrap">
+      <table class="wsjf-table" id="wsjfTable">
+        <thead>
+          <tr>
+            <th class="rank-col">#</th>
+            <th class="feature-col">Dashboard Feature</th>
+            <th class="vote-col">Votes</th>
+            <th class="score-col">Biz Value</th>
+            <th class="score-col">Time Crit.</th>
+            <th class="score-col">Risk / Opp.</th>
+            <th class="score-col">Effort</th>
+            <th class="wsjf-col">Score</th>
+          </tr>
+        </thead>
+        <tbody id="wsjfBody"></tbody>
+      </table>
+    </div>
+
+    <p style="font-size: 0.78rem; color: var(--white-50); margin-top: 1rem; line-height: 1.5;">
+      Weighted Score = (Business Value + Time Criticality + Risk/Opportunity) ÷ Effort&nbsp;&nbsp;·&nbsp;&nbsp;Higher score = build first&nbsp;&nbsp;·&nbsp;&nbsp;Fibonacci scale (1, 2, 3, 5, 8, 13)&nbsp;&nbsp;·&nbsp;&nbsp;Sample data for illustration
+    </p>
+  </div>
+</div>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="connect">
+  <h2 class="cta-headline">Ready to talk <span class="underline-blue">Dashboards</span>?</h2>
+  <p class="cta-body">
+    I'm based in the beautiful Portland, OR — available for remote or hybrid. I'd love to talk about how my operator background and product experience can help SpotOn build the Dashboard that independent restaurants deserve.
+  </p>
+  <div class="cta-buttons">
+    <a href="mailto:modom87@gmail.com" class="btn-primary">
+      Get in touch
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/malloryodom/" class="btn-outline" target="_blank">
+      LinkedIn
+    </a>
+    <a href="https://modom1123.github.io/poetential/spoton/SpotOn_Product_Manager_Resume.pdf" class="btn-outline" target="_blank" class="citem">
+     <span class="citem-key">View Résumé</span>
+     <span class="citem-val">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  Mallory Odom · Portland, OR · Built with a sh*t. Not a SpotOn product — just someone who wants to build one.
+</footer>
+
+<script>
+const features = [
+  { name: "Mobile dashboard redesign", votes: 47, bv: 8, tc: 5, ro: 3, js: 13 },
+  { name: "Customizable PDF report export", votes: 38, bv: 3, tc: 2, ro: 2, js: 2 },
+  { name: "Multi-location roll-up reporting", votes: 31, bv: 13, tc: 8, ro: 8, js: 8 },
+  { name: "AI-powered cost anomaly alerts", votes: 24, bv: 13, tc: 13, ro: 8, js: 5 },
+  { name: "Real-time labor vs. sales widget", votes: 19, bv: 8, tc: 8, ro: 5, js: 3 },
+  { name: "Integrated tip payout tracking", votes: 15, bv: 5, tc: 5, ro: 13, js: 3 },
+];
+
+features.forEach(f => { f.wsjf = Math.round(((f.bv + f.tc + f.ro) / f.js) * 10) / 10; });
+
+let currentSort = 'votes';
+
+function renderTable(sortKey) {
+  const sorted = [...features].sort((a, b) => sortKey === 'votes' ? b.votes - a.votes : b.wsjf - a.wsjf);
+  const tbody = document.getElementById('wsjfBody');
+  tbody.innerHTML = '';
+  sorted.forEach((f, i) => {
+    const tr = document.createElement('tr');
+    const isHighlight = sortKey === 'wsjf' && i === 0;
+    if (isHighlight) tr.classList.add('wsjf-highlight');
+    tr.innerHTML = `
+      <td class="rank-num">${i + 1}</td>
+      <td class="feature-cell">${f.name}</td>
+      <td class="${sortKey === 'votes' ? 'vote-count' : 'dim'}">${f.votes}</td>
+      <td>${f.bv}</td>
+      <td>${f.tc}</td>
+      <td>${f.ro}</td>
+      <td>${f.js}</td>
+      <td class="wsjf-score">${f.wsjf}</td>
+    `;
+    tr.style.opacity = '0';
+    tr.style.transform = 'translateY(8px)';
+    tbody.appendChild(tr);
+    setTimeout(() => { tr.style.opacity = '1'; tr.style.transform = 'translateY(0)'; }, 50 * (i + 1));
+  });
+}
+
+function sortBy(key) {
+  currentSort = key;
+  document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  renderTable(key);
+}
+
+renderTable('votes');
+</script>
+
+</body>
+</html>
